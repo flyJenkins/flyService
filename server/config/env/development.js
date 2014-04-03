@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/mean-dev',
+    db: 'mongodb://winterwolf:dnlsxjdnfvm@ds035747.mongolab.com:35747/fly_service',
     app: {
-        name: 'MEAN - A Modern Stack - Development'
+        name: 'flyJoin - 나는 것에 합류'
     },
     facebook: {
         clientID: 'APP_ID',
