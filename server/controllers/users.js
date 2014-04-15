@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    User = mongoose.model('User'),
+    request = require('request');
 
 /**
  * Auth callback
@@ -38,6 +39,44 @@ exports.session = function(req, res) {
     res.redirect('/');
 };
 
+exports.repository = function(req, res){
+    // login check
+    if(req.isAuthenticated()){
+        var user = req.user;
+        if(user && user.github && user.github.repos_url){
+            var requestOption = {
+                uri : user.github.repos_url,
+                headers : {
+                    'User-Agent' : 'request'
+                }
+            };
+            request(requestOption, function(error, response, body){
+                if(error){
+
+                }else{
+                    var body = JSON.parse(body);
+                    // forking한 것과 아닌 것을 나눔
+                    var repositories = {
+                        fork : [],
+                        own : []
+                    };
+
+                    for(var repo, i = 0; repo = body[i]; i++){
+                        if(repo.fork){
+                            repositories.fork.push(repo);
+                        }else{
+                            repositories.own.push(repo);
+                        }
+                    }
+                    res.send(repositories);
+                }
+
+            });
+        }
+    }else{
+        res.status(403).send("login plz.");
+    }
+};
 /**
  * Create user
  */

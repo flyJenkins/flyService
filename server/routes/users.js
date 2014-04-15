@@ -77,4 +77,6 @@ module.exports = function(app, passport) {
         failureRedirect: '#!/login'
     }), users.authCallback);
 
+    app.get('/user/repository', users.repository);
+
 };
