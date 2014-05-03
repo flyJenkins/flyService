@@ -1,20 +1,23 @@
 'use strict';
 
-angular.module('mean.system').controller('HeaderController', ['$scope', '$rootScope', 'Global', 'Menus',
+angular.module('flyService.system').controller('HeaderController', ['$scope', '$rootScope', 'Global', 'Menus',
     function($scope, $rootScope, Global, Menus) {
         $scope.global = Global;
         $scope.menus = {};
 
         // Default hard coded menu items for main menu
-        var defaultMainMenu = [{
-            'roles': ['authenticated'],
-            'title': 'Articles',
-            'link': 'all articles'
-        }, {
-            'roles': ['authenticated'],
-            'title': 'Create New Article',
-            'link': 'create article'
-        }];
+        var defaultMainMenu = [
+            {
+                roles : ['authenticated'],
+                title : '테스트 대시보드',
+                link : 'all tests'
+            },
+            {
+                roles : ['authenticated'],
+                title : '배포 대시보드',
+                link : 'all deploy reports'
+            }
+        ];
 
         // Query menus added by modules. Only returns menus that user is allowed to see.
         function queryMenu(name, defaultMenu) {
@@ -23,7 +26,6 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$rootSc
                 name: name,
                 defaultMenu: defaultMenu
             }, function(menu) {
-                console.log(menu)
                 $scope.menus[name] = menu;
             });
         };

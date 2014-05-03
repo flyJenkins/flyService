@@ -1,17 +1,21 @@
 'use strict';
 
-angular.module('mean.system').controller('IndexController', ['$scope', '$http', 'Global', function ($scope, $http, Global) {
+angular.module('flyService.system').controller('IndexController', ['$scope', '$http', 'Global', function ($scope, $http, Global) {
     $scope.global = Global;
-
-    $scope.getRepositoryList = function(callback){
+    $scope.nowLoading = false;
+    $scope.getRepositories = function(callback){
+        $scope.nowLoading = true;
         $http.get("/user/repository")
             .success(function(data){
+                $scope.nowLoading = false;
                 callback(data);
             }
         );
     };
 
-    $scope.getRepositoryList(function(data){
-        $scope.repositoryList = data;
-    })
+    if(Global.user !== null){
+        $scope.getRepositories(function(data){
+            $scope.repositories = data;
+        })
+    }
 }]);

@@ -1,0 +1,46 @@
+<section data-ng-controller="TestsController" data-ng-init="init()">
+    <div class="row">
+        <div class="col-xs-6">
+            <h3>Job List</h3>
+            <ul class="list-unstyled">
+                <li data-ng-repeat="test in tests">
+                    <section class="job" data-ng-click="selectTest(test)">
+                        <h4 class="job-name">
+                            {{test.jobName}}
+                        </h4>
+                        <span class="git-url">
+                            {{test.gitUrl}}
+                        </span>
+                    </section>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-xs-6">
+            <h3>Test Reports <span data-ng-show="selectedTest !== null"> - {{selectedTest.jobName}}</span></h3>
+            <table class="table" data-ng-show="selectedTest !== null">
+                <thead>
+                    <th>BuildNumber</th>
+                    <th>Result</th>
+                    <th>TestCode Passing Percent</th>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="testReport in selectedTest.testReports">
+                        <td>{{testReport.buildNumber}}</td>
+                        <td>{{testReport.result}}</td>
+                        <td>
+                            <span data-ng-show="testReport.testCode &&
+                                testReport.testCode.passing !== 0 &&
+                                testReport.testCode.count !== 0">
+                                {{100 * testReport.testCode.count / testReport.testCode.passing}}%
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div data-ng-show="selectedTest === null">
+                Job을 선택하세요.
+            </div>
+        </div>
+    </div>
+</section>

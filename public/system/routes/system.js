@@ -1,7 +1,7 @@
 'use strict';
 
 //Setting up route
-angular.module('mean.system').config(['$stateProvider', '$urlRouterProvider',
+angular.module('flyService.system').config(['$stateProvider', '$urlRouterProvider',
         function($stateProvider, $urlRouterProvider) {
             // For unmatched routes:
             $urlRouterProvider.otherwise('/');

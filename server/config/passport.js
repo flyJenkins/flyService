@@ -133,6 +133,7 @@ module.exports = function(passport) {
                         email: profile.emails[0].value,
                         username: profile.username,
                         provider: 'github',
+                        roles : ['authenticated'],
                         github: profile._json
                     });
                     user.save(function(err) {

@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('mean.auth', []);
+angular.module('flyService.auth', []);

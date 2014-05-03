@@ -1,7 +1,7 @@
 'use strict';
 
 //Setting up route
-angular.module('mean.auth').config(['$stateProvider', '$urlRouterProvider',
+angular.module('flyService.auth').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
         //================================================

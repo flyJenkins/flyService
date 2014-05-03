@@ -1,0 +1,12 @@
+.repository{
+    border : 1px solid #000066;
+    border-radius: 5px;
+    cursor: pointer;
+    padding : 0 5px 0 5px;
+    margin : 0 5px 0 5px;
+}
+.repository:hover{
+    background-color : #000066;
+    color : white;
+    text-decoration: none;
+}

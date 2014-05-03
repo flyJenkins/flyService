@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://winterwolf:dnlsxjdnfvm@ds035747.mongolab.com:35747/fly_service',
+    db: 'mongodb://localhost/flyService',
     app: {
-        name: 'flyJoin - 나는 것에 합류'
+        name: 'flyService'
     },
     facebook: {
         clientID: 'APP_ID',
@@ -16,9 +16,9 @@ module.exports = {
         callbackURL: 'http://localhost:3000/auth/twitter/callback'
     },
     github: {
-        clientID: '93d5dceca9704f06797a',
-        clientSecret: '0081038d7d11218f36d0a231933a1e5379fd47da',
-        callbackURL: 'http://localhost:3000/auth/github/callback'
+        clientID: 'd64bfb89cc502f5461ca',
+        clientSecret: '6ad15b8c0e4b01543bf317197767b855d6548097',
+        callbackURL: 'http://join.flyjenkins.org/auth/github/callback'
     },
     google: {
         clientID: 'APP_ID',
