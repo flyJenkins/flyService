@@ -10,7 +10,9 @@
             </div>
         </div>
     </div>
-    <div class="row" data-ng-show="{{global.authenticated}}">
+    <section class="row" data-ng-show="{{global.authenticated}}">
+        <h3>마지막 동기화 시간 : {{user.lastSyncTime | date:'yyyy-mm-dd HH:MM'}}</h3>
+        <button type="button" class="btn btn-primary" data-ng-click="sync()">동기화하기</button>
         <div class="col-xs-6">
             <h3>당신의 repository</h3>
             <div class="now-loading" data-ng-show="nowLoading">
@@ -94,5 +96,5 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </section>
 </section>

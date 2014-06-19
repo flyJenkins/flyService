@@ -13,6 +13,15 @@ angular.module('flyService.system').controller('IndexController', ['$scope', '$h
         );
     };
 
+    $scope.sync = function(){
+        $http
+            .post('/repository/sync')
+            .success(function(data){
+                console.log(data);
+                $scope.lastSyncTime = new Date();
+                $scope.repositories = data;
+            });
+    };
     if(Global.user !== null){
         $scope.getRepositories(function(data){
             $scope.repositories = data;
