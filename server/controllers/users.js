@@ -63,8 +63,9 @@ exports.repository = function(req, res){
                             fork : [],
                             own : []
                         };
-
-                        for(var repo, i = 0; repo = body[i]; i++){
+                        var repo, i;
+                        for(i = 0; i < body.length; i++){
+                            repo = body[i];
                             if(repo.fork){
                                 repositories.fork.push(repo);
                             }else{

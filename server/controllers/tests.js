@@ -101,8 +101,7 @@ exports.findOne = function(req, res){
     for(i = 0 ; i < dummyTests.length; i++){
         if(dummyTests[i].jobID === jobID){
             hasData = true;
-            console.log(dummyTests[key]);
-            res.json(dummyTests[key]);
+            res.json(dummyTests[i]);
         }
     }
     if(!hasData){

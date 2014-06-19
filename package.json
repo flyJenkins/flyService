@@ -2,7 +2,7 @@
   "name": "flyService",
   "description": "flyService is flyJenkins UI.",
   "version": "0.3.0",
-  "private": false,
+  "private": true,
   "author": "rotoshine@gmail.com",
   "contributors": [],
   "repository": {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('flyService-factory-interceptor',[])
+angular.module('mean-factory-interceptor',[])
     .factory('httpInterceptor', ['$q','$location',function ($q,$location) {
         return {
             'response': function(response) {
