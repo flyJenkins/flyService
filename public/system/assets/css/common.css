@@ -26,18 +26,29 @@
     width:100%
 }
 
-footer {
-    position:fixed;
-    left:0;
-    bottom:0;
-    height:30px;
+
+.overlay-background{
+    position: fixed;
+    left: 0;
+    top: 0;
     width:100%;
-    background:#ddd;
-    -webkit-box-shadow:0 8px 6px 6px black;
-    -moz-box-shadow:0 8px 6px 6px black;
-    box-shadow:0 8px 6px 6px black
+    height:100%;
+    z-index:100;
+    background-color:rgb(0,0,0);
+    background-color:rgba(0,0,0,0.3);
+}
+.overlay-background .popup-wrapper{
+    border:1px solid black;
+    border-radius: 5px;
+    background-color:#FFFFFF;
+    box-shadow: 2px 2px 2px #333333;
+    padding:0 10px 10px 10px;
+}
+.popup-wrapper header{
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
 }
 
-footer p {
-    padding:5px 0 12px 10px
+.popup-wrapper .popup-buttons{
+    margin-top:10px;
 }

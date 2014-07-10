@@ -1,0 +1,49 @@
+<!-- add repository -->
+<section class="overlay-background" data-ng-show="repositoryAddPopup.isShow()">
+    <section class="add-repository-wrapper popup-wrapper">
+        <header>
+            <h3>Add Repository</h3>
+        </header>
+        <section class="popup-content">
+            <section data-ng-switch="repositoryAddPopup.addType">
+                <section data-ng-switch-when="null">
+                    <h5>Repository를 가져올 방법을 선택해주세요.</h5>
+                    <button type="button" class="btn btn-info" data-ng-click="repositoryAddPopup.selectAddType('manual')">가져올 Repository 정보를 입력합니다.</button>
+                    <button type="button" class="btn btn-info" data-ng-click="repositoryAddPopup.selectAddType('github')">Github에서 가져올 Repository를 직접 선택합니다.</button><br/>
+                    <button type="button" class="btn btn-info" data-ng-click="repositoryAddPopup.selectAddType('githubAll')">GIthub에서 모든 Repository를 가져옵니다.</button>
+                </section>
+                <section data-ng-switch-when="manual">
+                    <section class="popup-content">
+                        <section class="form-group">
+                            <section class="well">
+                                Test 및 Deploy를 위해서는 Repository가 추가되어야합니다.<br/>
+                                현재 Git Repository만 지원합니다.
+                            </section>
+                            <label for="repository-type" class="col-xs-4 control-label">Repository Type</label>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="repository-type" data-ng-model="addRepository.repositoryType">
+                                    <option value="git">Git</option>
+                                </select>
+                            </div>
+                        </section>
+                        <section class="form-group">
+                            <label for="repository-url" class="col-xs-4">Repository URL</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control control-label" id="repository-url"/>
+                            </div>
+                        </section>
+                    </section>
+                    <footer class="popup-buttons pull-right">
+                        <button type="button" class="btn btn-danger" data-ng-click="repositoryAddPopup.hide()"><i class="glyphicon glyphicon-remove"></i> Close</button>
+                        <button type="button" class="btn btn-info"><i class="glyphicon glyphicon-book"></i> Add Repository</button>
+                    </footer>
+                </section>
+                <section data-ng-switch-when="github"></section>
+                <section data-ng-switch-when="githubAll"></section>
+            </section>
+        </section>
+        <footer class="pull-right" data-ng-show="repositoryAddPopup.addType === null">
+            <button type="button" class="btn btn-danger" data-ng-click="repositoryAddPopup.hide()"><i class="glyphicon glyphicon-remove"></i> Close</button>
+        </footer>
+    </section>
+</section>

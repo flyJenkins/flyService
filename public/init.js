@@ -5,7 +5,6 @@ angular.element(document).ready(function() {
     if (window.location.hash === '#_=_') window.location.hash = '#!';
 
     //Then init the app
-    console.log(angular.bootstrap);
     angular.bootstrap(document, ['flyService']);
 });
 
@@ -17,9 +16,19 @@ for (var index in window.modules) {
 }
 
 var modules = ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router',
-    'flyService.system', 'flyService.auth', 'flyService.tests'];
+    'flyService.system', 'flyService.auth', 'flyService.tests', 'flyService.repository'];
 
 modules = modules.concat(packageModules);
 
 // Combined modules
-angular.module('flyService', modules);
+angular.module('flyService', modules)
+    .directive('onLastRepeat', function() {
+        return function(scope, element, attrs) {
+            if(scope.$last){
+                console.log('last!');
+                setTimeout(function(){
+                    scope.$emit('onRepeatLast', element, attrs);
+                }, 1);
+            }
+        };
+    });

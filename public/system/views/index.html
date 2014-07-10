@@ -11,90 +11,16 @@
         </div>
     </div>
     <section class="row" data-ng-show="{{global.authenticated}}">
-        <h3>마지막 동기화 시간 : {{user.lastSyncTime | date:'yyyy-mm-dd HH:MM'}}</h3>
-        <button type="button" class="btn btn-primary" data-ng-click="sync()">동기화하기</button>
-        <div class="col-xs-6">
-            <h3>당신의 repository</h3>
-            <div class="now-loading" data-ng-show="nowLoading">
-                <img src="/public/system/assets/img/loaders/loader.gif" alt=""/>
-            </div>
-            <ul class="list-unstyled">
-                <li class="repository" data-ng-repeat="repository in repositories.own">
-                    <section class="repository-detail">
-                        <h4 class="repository-name">{{repository.name}}</h4>
-                        <div class="repository-description">
-                            {{repository.description}}
-                        </div>
-                        <div>
-                            <span class="label label-info stat">
-                                <i class="glyphicon glyphicon-random"></i>
-                                {{repository.default_branch}}
-                            </span>
-                            <span class="label label-info stat">
-                                <i class="glyphicon glyphicon-star"></i>
-                            </span>
-                            <span class="label label-danger stat">
-                                <i class="glyphicon glyphicon-list-alt"></i>
-                                &nbsp;{{repository.open_issues_count}}
-                            </span>
-                        </div>
-                        <div class="buttons">
-                            <a href="{{repository.downloads_url}}" class="btn btn-info"
-                               target="_blank"
-                               data-ng-show="repository.has_downloads">
-                                <i class="glyphicon glyphicon-download"></i>
-                                소스코드 다운로드
-                            </a>
-                        </div>
-                    </section>
-
-                    <a href="{{repository.html_url}}" target="_blank">
-                        <div class="repository-name">{{repository.name}}</div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-xs-6">
-            <h3>당신이 forking한 repository</h3>
-            <div class="now-loading" data-ng-show="nowLoading">
-                <img src="/public/system/assets/img/loaders/loader.gif" alt=""/>
-            </div>
-            <ul class="list-unstyled">
-                <li class="repository" data-ng-repeat="repository in repositories.fork">
-                    <section class="repository-detail">
-                        <h4 class="repository-name">{{repository.name}}</h4>
-                        <div class="repository-description">
-                            {{repository.description}}
-                        </div>
-                        <div>
-                            <span class="label label-info stat">
-                                <i class="glyphicon glyphicon-random"></i>
-                                {{repository.default_branch}}
-                            </span>
-                            <span class="label label-info">
-                                <i class="glyphicon glyphicon-cutlery"></i>
-                                &nbsp;{{repository.forks_count}}
-                            </span>
-                            <span class="label label-danger stat">
-                                <i class="glyphicon glyphicon-list-alt"></i>
-                                &nbsp;{{repository.open_issues_count}}
-                            </span>
-                        </div>
-                        <div class="buttons">
-                            <a href="{{repository.downloads_url}}" class="btn btn-info"
-                               target="_blank"
-                               data-ng-show="repository.has_downloads">
-                                <i class="glyphicon glyphicon-download"></i>
-                                소스코드 다운로드
-                            </a>
-                        </div>
-                    </section>
-
-                    <a href="{{repository.html_url}}" target="_blank">
-                        <div class="repository-name">{{repository.name}}</div>
-                    </a>
-                </li>
-            </ul>
+        <section class="now-loading" data-ng-show="nowLoading">
+            <img src="/public/system/assets/img/loaders/loader.gif" alt=""/>
+        </section>
+        <div class="col-xs-12" data-ng-show="!nowLoading">
+            <section>
+                <button class="btn btn-info" data-ng-click="repositoryAddPopup.show()">Add Repository</button>
+            </section>
+            <h3>My Repository</h3>
+            <section data-ng-include src="'/public/repository/views/repository.html'" onload="loadRepository()"></section>
         </div>
     </section>
+    <section data-ng-include src="'/public/repository/views/addRepository.html'"></section>
 </section>

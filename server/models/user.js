@@ -32,11 +32,7 @@ var UserSchema = new Schema({
     github: {},
     google: {},
     linkedin: {},
-    repositories:{
-        fork: [],
-        own: []
-    },
-    lastRepositorySyncTime: Date
+    lastSyncDate: Date
 });
 
 /**

@@ -1,0 +1,29 @@
+<section id="repository-list">
+    <article class="item repository-wrapper" data-ng-repeat="repository in repositories">
+        <section class="repository">
+            <section class="repository-detail">
+                <h4 class="repository-name">{{repository.name}}</h4>
+                <div class="repository-description">
+                    {{repository.github.description}}
+                </div>
+                <div>
+                    <span class="label label-info stat">
+                        <i class="glyphicon glyphicon-random"></i> {{repository.github.default_branch}}
+                    </span>
+                    <span class="label label-info stat">
+                        <i class="glyphicon glyphicon-star"></i> {{repository.github.stargazers_count}}
+                    </span>
+                    <span class="label label-danger stat">
+                        <i class="glyphicon glyphicon-list-alt"></i> {{repository.github.open_issues_count}}
+                    </span>
+                </div>
+            </section>
+            <section>
+                <span class="label label-info">{{repository.analysis.language}}</span>
+            </section>
+            <section class="repository-actions">
+                <button type="button" class="btn btn-info"><i class="glyphicon glyphicon-send"></i> Let's Test!</button>
+            </section>
+        </section>
+    </article>
+</section>
