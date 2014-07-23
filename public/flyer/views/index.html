@@ -1,0 +1,48 @@
+<section class="container" data-ng-controller="FlyerController">
+    <section class="row">
+        <section class="col-xs-12">
+            <button type="button" class="btn btn-info" data-ng-click="flyerGroupAddPopup.show()">Add Flyer Group</button>
+            <button type="button" class="btn btn-info" data-ng-click="flyerAddPopup.show()">Add Flyer</button>
+        </section>
+    </section>
+    <section class="row">
+        <section class="col-md-6 col-xs-12">
+            <h3>Flyer Group List</h3>
+            <ul class="list-unstyled">
+                <li data-ng-repeat="flyerGroup in flyerGroups">
+                    <article data-ng-click="selectFlyerGroup(flyerGroup)">
+                        {{flyerGroup.name}}
+                    </article>
+                </li>
+            </ul>
+        </section>
+        <section class="col-md-6 col-xs-12">
+            <h3>Flyer List</h3>
+            <ul class="list-unstyled">
+                <li data-ng-repeat="flyer in flyers">
+                    <article>
+                        <section data-ng-switch="{{flyer.type}}">
+                            <img src="/public/system/assets/img/type_logos/1.jpg" alt="" data-ng-switch-when="1"/>
+                            <img src="/public/system/assets/img/type_logos/2.jpg" alt="" data-ng-switch-when="2"/>
+                            <img src="/public/system/assets/img/type_logos/3.jpg" alt="" data-ng-switch-when="3"/>
+                            <section data-ng-switch-when="4">ETC</section>
+                            <section>
+                                <dl class="dl-horizontal">
+                                    <dt>Command</dt>
+                                    <dd><span class="label label-info">{{flyer.command}}</span></dd>
+                                    <dt>Host</dt>
+                                    <dd>{{flyer.host}}</dd>
+                                </dl>
+                            </section>
+                            <section>
+
+                            </section>
+                        </section>
+                    </article>
+                </li>
+            </ul>
+        </section>
+    </section>
+    <section data-ng-include src="'/public/flyer/views/addFlyerGroup.html'"></section>
+    <section data-ng-include src="'/public/flyer/views/addFlyer.html'"></section>
+</section>

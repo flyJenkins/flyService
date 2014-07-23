@@ -1,0 +1,24 @@
+<section class="overlay-background" data-ng-show="flyerGroupAddPopup.isShow()">
+    <section class="add-repository-wrapper popup-wrapper">
+        <header>
+            <h3>Add Flyer Group</h3>
+        </header>
+        <section class="popup-content">
+            <section class="well">
+                Flyer를 생성하기 전에, 먼저 Flyer Group을 등록해야 합니다.
+            </section>
+            <form class="form">
+                <section class="form-group">
+                    <label for="add-group-name" class="col-xs-4">Group Name</label>
+                    <div class="col-xs-8">
+                        <input type="text" class="form-control control-label" id="add-group-name" data-ng-model="addFlyerGroupName"/>
+                    </div>
+                </section>
+            </form>
+        </section>
+        <footer class="pull-right">
+            <button type="button" class="btn btn-primary">Add Flyer Group</button>
+            <button type="button" class="btn btn-danger" data-ng-click="flyerGroupAddPopup.hide()"><i class="glyphicon glyphicon-remove"></i> Close</button>
+        </footer>
+    </section>
+</section>

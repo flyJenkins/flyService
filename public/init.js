@@ -16,7 +16,7 @@ for (var index in window.modules) {
 }
 
 var modules = ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router',
-    'flyService.system', 'flyService.auth', 'flyService.tests', 'flyService.repository'];
+    'flyService.system', 'flyService.auth', 'flyService.tests', 'flyService.repository', 'flyService.flyer'];
 
 modules = modules.concat(packageModules);
 

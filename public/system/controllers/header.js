@@ -9,6 +9,11 @@ angular.module('flyService.system').controller('HeaderController', ['$scope', '$
         var defaultMainMenu = [
             {
                 roles : ['authenticated'],
+                title: 'Flyer 관리',
+                link : 'all flyer groups'
+            },
+            {
+                roles : ['authenticated'],
                 title : '테스트 대시보드',
                 link : 'all tests'
             },

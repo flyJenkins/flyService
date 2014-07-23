@@ -1,0 +1,28 @@
+<section class="overlay-background" data-ng-show="flyerAddPopup.isShow()">
+    <section class="add-repository-wrapper popup-wrapper">
+        <header>
+            <h3>Add Flyer</h3>
+        </header>
+        <section class="popup-content">
+            <form class="form">
+                <section class="form-group">
+                    <label for="add-flyer-group-select" class="col-xs-4">Flyer Group</label>
+                    <select id="add-flyer-group-select" data-ng-model="flyerGroup" data-ng-options="flyerGroup.name as flyerGroup.groupID for flyerGroup in flyerGroups"></select>
+                </section>
+                <section class="form-group">
+                    <label for="add-flyer-name" class="col-xs-4">Flyer Name</label>
+                    <div class="col-xs-8">
+                        <input type="text" class="form-control control-label" id="add-flyer-name"/>
+                    </div>
+                </section>
+                <section class="form-group">
+
+                </section>
+            </form>
+        </section>
+        <footer class="pull-right">
+            <button type="button" class="btn btn-primary">Add Flyer</button>
+            <button type="button" class="btn btn-danger" data-ng-click="flyerAddPopup.hide()"><i class="glyphicon glyphicon-remove"></i> Close</button>
+        </footer>
+    </section>
+</section>
