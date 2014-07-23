@@ -4,12 +4,14 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+    repository = require('./repository'),
     User = mongoose.model('User');
 
 /**
  * Auth callback
  */
 exports.authCallback = function(req, res) {
+    repository.syncFromGithub(req, res);
     res.redirect('/');
 };
 
