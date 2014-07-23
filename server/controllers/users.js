@@ -11,7 +11,6 @@ var mongoose = require('mongoose'),
  * Auth callback
  */
 exports.authCallback = function(req, res) {
-    repository.syncFromGithub(req, res);
     res.redirect('/');
 };
 
